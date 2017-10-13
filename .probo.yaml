@@ -1,6 +1,8 @@
 steps:
   - name: Update Composer.
     command: '/usr/local/bin/composer self-update'
+  - name: Create docroot directory.
+    command: 'mkdir /src/docroot'
   - name: Set composer depdency branch.
     command: 'composer config -d /src/docroot/ repositories.drupal composer https://packages.drupal.org/8'
   - name: Install composer packages with dependencies.
