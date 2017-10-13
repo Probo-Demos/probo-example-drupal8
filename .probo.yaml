@@ -4,9 +4,9 @@ steps:
   - name: Generate Drupal 8 files.
     command: 'composer create-project zivtech/bear-project:8.2.x-dev bear8'
   - name: Set composer depdency branch.
-    command: 'composer config -d /src/docroot/ repositories.drupal composer https://packages.drupal.org/8'
+    command: 'composer config -d /src/bear8/docroot/ repositories.drupal composer https://packages.drupal.org/8'
   - name: Install composer packages with dependencies.
-    command: 'composer install -d /src/docroot/'
+    command: 'composer install -d /src/bear8/docroot/'
   - name: Probo site setup
     plugin: Drupal
     clearCaches: false
