@@ -13,5 +13,5 @@ steps:
     settingsRequireFile: site-settings.php
     drupalVersion: 8
     configSyncDirectory: config/sync
-- name: Run install
+  - name: Run install
     command: "drush site-install --root=/var/www/html bear --db-url='mysqli://root:strongpassword@localhost/bear'"
