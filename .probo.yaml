@@ -5,12 +5,14 @@ steps:
     command: 'composer config -d /src/docroot/ repositories.drupal composer https://packages.drupal.org/8'
   - name: Install composer packages with dependencies.
     command: 'composer install -d /src/docroot/'
+  - name: Generate Drupal 8 files.
+    command: 'composer create-project zivtech/bear-project bear8'
   - name: Probo site setup
     plugin: Drupal
     clearCaches: false
-    subDirectory: docroot
+    subDirectory: bear8/docroot
     settingsRequireFile: site-settings.php
     drupalVersion: 8
     configSyncDirectory: config/sync
   - name: Run install
-    command: "drush site-install --root=/var/www/html bear --db-url='mysqli://root:strongpassword@localhost/bear'"
+    command: "drush site-install --root=/var/www/html/bear8/docroot bear --db-url='mysqli://root:strongpassword@localhost/bear'"
